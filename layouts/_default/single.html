@@ -1,0 +1,22 @@
+{{- partial "head" . -}}
+
+{{- partial "navbar" . -}}
+
+<body class="has-docked-nav">
+    <div class="container">
+        <div class="row" style="margin-top: 15%">
+            <div class="column">
+                <div>
+                    <h1>{{ .Title }}</h1>
+                </div>
+                <article>
+                    <section>
+                        {{ .Content }}
+                    </section>
+                </article>
+            </div>
+        </div>
+    </div>
+</body>
+
+{{ partial "footer" . }}
