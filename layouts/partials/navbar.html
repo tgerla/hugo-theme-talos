@@ -4,30 +4,35 @@
         <div class="row">
             <div class="column column-50">
                 <ul class="navbar-list">
+                    <li class="navbar-item navbar-item-left">
+                        <a class="navbar-link logo" href="/">
+                            <img src="{{ .Site.BaseURL }}/img/logo.svg" class="logo">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="column column-50">
+                <ul class="navbar-list">
                     {{ range .Site.Menus.main.ByWeight }}
                         {{ if .HasChildren }}
                             <li class="navbar-item">
-                                <a class="navbar-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
+                                <a class="navbar-link" {{ if .URL }}href="{{ .URL | absURL }}"{{end}}>{{ .Name }}</a>
                                 <div class="popover navbar-popover">
                                     <ul class="popover-list">
-                                         {{ range .Children }}
-                                            <li class="popover-item">
-                                                <a class="popover-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
-                                            </li>
-                                         {{ end }}
+                                        {{ range .Children }}
+                                        <li class="popover-item">
+                                            <a class="popover-link" {{ if .URL }}href="{{ .URL | absURL }}"{{end}}>{{ .Name }}</a>
+                                        </li>
+                                        {{ end }}
                                     </ul>
                                 </div>
                             </li>
                         {{ else }}
                             <li class="navbar-item">
-                                <a class="navbar-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
+                                <a class="navbar-link" {{ if .URL }}href="{{ .URL | absURL }}"{{end}}>{{ .Name }}</a>
                             </li>
                         {{ end }}
                     {{ end }}
-                </ul>
-            </div>
-            <div class="column column-50">
-                <ul class="navbar-list">
                     <li class="navbar-item navbar-item-right">
                         <a class="navbar-link navbar-logo" rel="noopener noreferrer" href="{{ .Site.Params.githubLink }}"
                         target="_blank">
