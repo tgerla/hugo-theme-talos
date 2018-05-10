@@ -1,10 +1,9 @@
-<html>
 <nav class="navbar">
     <div class="container">
         <div class="row">
             <div class="column column-50">
-                <ul class="navbar-list">
-                    <li class="navbar-item navbar-item-left">
+                <ul class="navbar-list pull-left">
+                    <li class="navbar-item">
                         <a class="navbar-link logo" href="/">
                             <img src="{{ .Site.BaseURL }}/img/logo.svg" class="logo">
                         </a>
@@ -12,7 +11,7 @@
                 </ul>
             </div>
             <div class="column column-50">
-                <ul class="navbar-list">
+                <ul class="navbar-list pull-right">
                     {{ range .Site.Menus.main.ByWeight }}
                         {{ if .HasChildren }}
                             <li class="navbar-item">
@@ -33,8 +32,8 @@
                             </li>
                         {{ end }}
                     {{ end }}
-                    <li class="navbar-item navbar-item-right">
-                        <a class="navbar-link navbar-logo" rel="noopener noreferrer" href="{{ .Site.Params.githubLink }}"
+                    <li class="navbar-item">
+                        <a class="navbar-link navbar-logo" rel="noopener noreferrer" href="{{ .Site.Params.GitHubLink }}"
                         target="_blank">
                             <i class="fa fa-github" aria-hidden="true"></i>
                         </a>
@@ -44,5 +43,3 @@
         </div>
     </div>
 </nav>
-
-</html>
