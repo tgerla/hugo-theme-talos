@@ -1,1 +1,1 @@
-# hugo-theme-autonomy
+# hugo-theme-talos

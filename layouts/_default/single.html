@@ -1,22 +1,38 @@
 {{- partial "head" . -}}
 
+<body>
+
 {{- partial "navbar" . -}}
 
-<body class="has-docked-nav">
+{{- partial "sidebar" . -}}
+
     <div class="container">
-        <div class="row">
-            <div class="column">
-                <div>
-                    <h1 align="center">{{ .Title }}</h1>
+        <div class="content">
+            <div class="row ">
+                <div class="column column-10">
+                    {{ if .NextInSection }}
+                    <a class="navigation navigation-previous" href="{{.NextInSection.Permalink}}">
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                    {{ end }}
                 </div>
-                <article>
-                    <section>
-                        {{ .Content }}
+                <div class="column document">
+                    <section class="document">
+                        <h1 class="title">{{ .Title }}</h1>
+                        <p>{{.Content}}</p>
                     </section>
-                </article>
+                </div>
+                <div class="column column-10">
+                    {{ if .PrevInSection }}
+                    <a class="navigation navigation-next" href="{{.PrevInSection.Permalink}}">
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
+                    {{ end }}
+                </div>
             </div>
         </div>
     </div>
-</body>
 
 {{ partial "footer" . }}
+
+</body>

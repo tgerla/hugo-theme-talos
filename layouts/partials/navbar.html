@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="column column-50">
-                <ul class="navbar-list pull-left">
+                <ul class="navbar-list navbar-left">
                     <li class="navbar-item">
                         <a class="navbar-link logo" href="/">
                             <img src="{{ .Site.BaseURL }}/img/logo.svg" class="logo">
@@ -11,32 +11,20 @@
                 </ul>
             </div>
             <div class="column column-50">
-                <ul class="navbar-list pull-right">
-                    {{ range .Site.Menus.main.ByWeight }}
-                        {{ if .HasChildren }}
-                            <li class="navbar-item">
-                                <a class="navbar-link" {{ if .URL }}href="{{ .URL | absURL }}"{{end}}>{{ .Name }}</a>
-                                <div class="popover navbar-popover">
-                                    <ul class="popover-list">
-                                        {{ range .Children }}
-                                        <li class="popover-item">
-                                            <a class="popover-link" {{ if .URL }}href="{{ .URL | absURL }}"{{end}}>{{ .Name }}</a>
-                                        </li>
-                                        {{ end }}
-                                    </ul>
-                                </div>
-                            </li>
-                        {{ else }}
-                            <li class="navbar-item">
-                                <a class="navbar-link" {{ if .URL }}href="{{ .URL | absURL }}"{{end}}>{{ .Name }}</a>
-                            </li>
-                        {{ end }}
-                    {{ end }}
+                <ul class="navbar-list navbar-right">
                     <li class="navbar-item">
-                        <a class="navbar-link navbar-logo" rel="noopener noreferrer" href="{{ .Site.Params.GitHubLink }}"
-                        target="_blank">
-                            <i class="fa fa-github" aria-hidden="true"></i>
+                        {{ with .Site.Params.GitHubLink }}
+                        <a class="navbar-link navbar-logo" rel="noopener noreferrer" href="{{ . }}" target="_blank">
+                            <span class="octicon octicon-mark-github"></span>
                         </a>
+                        {{ end }}
+                    </li>
+                    <li class="navbar-item">
+                        {{ with .Site.Params.DockerHubLink }}
+                        <a class="navbar-link navbar-logo" rel="noopener noreferrer" href="{{ . }}" target="_blank">
+                            <span class="fab fa-docker"></span>
+                        </a>
+                        {{ end }}
                     </li>
                 </ul>
             </div>
