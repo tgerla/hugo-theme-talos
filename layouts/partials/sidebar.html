@@ -47,35 +47,8 @@
     </div>
     <div class="row">
         <div class="column">
-            <ul class="sidebar-list parent">
-                <!-- https://gohugo.io/templates/menu-templates/#section-menu-for-lazy-bloggers -->
-                {{ $currentPage := . }}
-                {{ range .Site.Menus.main.ByWeight }}
-                {{ if .HasChildren }}
-                <li class="sidebar-item">
-                    <a class="sidebar-link sidebar-link-parent{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}"
-                        {{ if .URL }} href="{{ .URL | absURL }}" {{end}}>
-                        {{.Name }}
-                    </a>
-                    <ul class="sidebar-list{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}">
-                        {{ range .Children }}
-                        <li class="sidebar-item">
-                            <a class="sidebar-link{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}"
-                                {{ if .URL }} href="{{ .URL | absURL }}" {{end}}>
-                                {{.Name }}
-                            </a>
-                        </li>
-                        {{ end }}
-                    </ul>
-                </li>
-                {{ else }}
-                <li class="sidebar-item">
-                    <a class="sidebar-link" {{ if .URL }} href="{{ .URL | absURL }}" {{end}}>
-                        {{ .Name }}
-                    </a>
-                </li>
-                {{ end }}
-                {{ end }}
+<ul class="sidebar-list parent">
+                {{ partial "menu_include.html" . }}
             </ul>
         </div>
     </div>

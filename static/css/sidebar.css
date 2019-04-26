@@ -18,7 +18,7 @@
     font-weight: 500;
     letter-spacing: 0.5px;
     line-height: 1.0rem;
-    padding: 12px;
+    padding: 10px;
     width: 100%;
 }
 
@@ -39,7 +39,7 @@
 
 .sidebar-list.parent {
     display: block;
-    margin-left: 75px;
+    margin-left: 25px;
 }
 
 .sidebar-list .active {
