@@ -15,7 +15,7 @@
       </a>
       <!-- Only render sub-menu for parent items and the current item -->
       {{ if or $is $has }}
-        {{ partial "menu.html" (dict "menu" .Children "page" $page "site" $site) }}
+        {{ partial "menu_test.html" (dict "menu" .Children "page" $page "site" $site) }}
       {{ end }}
     </li>
   {{ else }}
