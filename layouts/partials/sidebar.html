@@ -50,17 +50,17 @@
             <ul class="sidebar-list parent">
                 <!-- https://gohugo.io/templates/menu-templates/#section-menu-for-lazy-bloggers -->
                 {{ $currentPage := . }}
-                {{ range .Site.Menus.main.ByWeight }}
+                {{ range .Site.Menus.docs.ByWeight }}
                 {{ if .HasChildren }}
                 <li class="sidebar-item">
-                    <a class="sidebar-link sidebar-link-parent{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}"
+                    <a class="sidebar-link sidebar-link-parent{{if or ($currentPage.IsMenuCurrent "docs" .) ($currentPage.HasMenuCurrent "docs" .) }} active{{end}}"
                         {{ if .URL }} href="{{ .URL | absURL }}" {{end}}>
                         {{.Name }}
                     </a>
-                    <ul class="sidebar-list{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}">
+                    <ul class="sidebar-list{{if or ($currentPage.IsMenuCurrent "docs" .) ($currentPage.HasMenuCurrent "docs" .) }} active{{end}}">
                         {{ range .Children }}
                         <li class="sidebar-item">
-                            <a class="sidebar-link{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}"
+                            <a class="sidebar-link{{if or ($currentPage.IsMenuCurrent "docs" .) ($currentPage.HasMenuCurrent "docs" .) }} active{{end}}"
                                 {{ if .URL }} href="{{ .URL | absURL }}" {{end}}>
                                 {{.Name }}
                             </a>
